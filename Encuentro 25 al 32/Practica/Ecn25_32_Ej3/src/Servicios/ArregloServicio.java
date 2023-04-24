@@ -19,7 +19,7 @@ public class ArregloServicio {
     }
     
     public void inicializarB(double[] arregloA, double[] arregloB){
-        System.arraycopy(arregloA, 0, arregloB, 0, 10);
-        Arrays.fill(arregloB, 10, 19, 0.5);
+        System.arraycopy(arregloA, 0, arregloB, 1, 10);
+        Arrays.fill(arregloB, 10, 20, 0.5);
     }
 }
