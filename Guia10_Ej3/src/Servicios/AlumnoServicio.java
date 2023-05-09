@@ -20,10 +20,19 @@ import java.util.Scanner;
 
 public class AlumnoServicio {
 
-    static Alumnos alumno = new Alumnos();
-    static Scanner leer = new Scanner(System.in);
-    public static ArrayList<Alumnos> alumnos = new ArrayList();
-    //static ArrayList<Integer> nota = new ArrayList();
+    Alumnos alumno = new Alumnos();
+    Scanner leer = new Scanner(System.in);
+    ArrayList<Alumnos> alumnos = new ArrayList();
+
+    public ArrayList<Alumnos> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(ArrayList<Alumnos> alumnos) {
+        this.alumnos = alumnos;
+    }
+    
+    
 
     public void crearAlumno() {
 

@@ -43,10 +43,4 @@ public class Alumnos {
     public void setNotas(ArrayList<Integer> notas) {
         this.notas = notas;
     }
-
-    @Override
-    public String toString() {
-        return "Alumnos{" + "nombre=" + nombre + ", notas=" + notas + '}';
-    }
-    
 }

@@ -22,14 +22,13 @@ public class Guia10_Ej3 {
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
         AlumnoServicio alSer = new AlumnoServicio();
-        Alumnos al = new Alumnos();
         
         alSer.crearAlumno();
         
         System.out.println("Ingrese un alumno para calcular su nota final");
         String alumno = leer.next();
         
-        for (Alumnos alumnos : AlumnoServicio.alumnos) {
+        for (Alumnos alumnos : alSer.getAlumnos()) {
             if(alumnos.getNombre().equals(alumno)){
                 System.out.println("La nota final de " + alumno + " es: " + alSer.notaFinal(alumnos));
             }
