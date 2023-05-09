@@ -13,7 +13,6 @@ promedio final, devuelto por el método y mostrado en el main.
  */
 package guia10_ej3;
 
-import Entidades.Alumnos;
 import Servicios.AlumnoServicio;
 import java.util.Scanner;
 
@@ -24,16 +23,7 @@ public class Guia10_Ej3 {
         AlumnoServicio alSer = new AlumnoServicio();
         
         alSer.crearAlumno();
-        
-        System.out.println("Ingrese un alumno para calcular su nota final");
-        String alumno = leer.next();
-        
-        for (Alumnos alumnos : alSer.getAlumnos()) {
-            if(alumnos.getNombre().equals(alumno)){
-                System.out.println("La nota final de " + alumno + " es: " + alSer.notaFinal(alumnos));
-            }
-        }
-        
+        alSer.verificarAlumno();
     }
     
 }

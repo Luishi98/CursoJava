@@ -24,16 +24,6 @@ public class AlumnoServicio {
     Scanner leer = new Scanner(System.in);
     ArrayList<Alumnos> alumnos = new ArrayList();
 
-    public ArrayList<Alumnos> getAlumnos() {
-        return alumnos;
-    }
-
-    public void setAlumnos(ArrayList<Alumnos> alumnos) {
-        this.alumnos = alumnos;
-    }
-    
-    
-
     public void crearAlumno() {
 
         String nombre;
@@ -51,6 +41,17 @@ public class AlumnoServicio {
             System.out.println("Desea ingresar un nuevo alumno?");
 
         } while (leer.next().equals("si"));
+    }
+    
+    public void verificarAlumno(){
+        System.out.println("Ingrese un alumno para calcular su nota final");
+        String alumno = leer.next();
+        
+        for (Alumnos alumnos : alumnos) {
+            if(alumnos.getNombre().equals(alumno)){
+                System.out.println("La nota final de " + alumno + " es: " + notaFinal(alumnos));
+            }
+        }
     }
 
     public double notaFinal(Alumnos al) {
