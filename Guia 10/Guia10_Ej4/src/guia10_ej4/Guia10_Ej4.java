@@ -24,7 +24,7 @@ import Servicios.PeliculaServicios;
 
 public class Guia10_Ej4 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         PeliculaServicios peSer = new PeliculaServicios();
         
         peSer.llamarMetodos();
