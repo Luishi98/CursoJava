@@ -38,9 +38,9 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Servicio {
-
+    
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
+    
     public Cliente crearCliente() {
         System.out.print("Nombre: ");
         String nombre = leer.next();
@@ -54,10 +54,10 @@ public class Servicio {
         String domicilio = leer.next();
         System.out.print("Telefono: ");
         int telefono = leer.nextInt();
-
+        
         return new Cliente(nombre, apellido, documento, mail, domicilio, telefono);
     }
-
+    
     public Vehiculo crearVehiculo() {
         System.out.print("Marca: ");
         String marca = leer.next();
@@ -73,14 +73,14 @@ public class Servicio {
         String color = leer.next();
         System.out.print("Tipo: ");
         String tipo = leer.next();
-
+        
         return new Vehiculo(marca, modelo, anio, motor, chasis, color, tipo);
     }
-
+    
     public Poliza generarPoliza() {
         System.out.print("Número de póliza: ");
         int numeroPoliza = leer.nextInt();
-        System.out.print("Fecha de inicio: ");
+        System.out.println("Fecha de inicio");
         System.out.print("Día: ");
         int dia = leer.nextInt();
         System.out.print("Mes: ");
@@ -108,8 +108,24 @@ public class Servicio {
         String tipo = leer.next();
         return new Poliza(numeroPoliza, fechaInicio, cuotasCantidad, formaPago, montoTotal, granizo, maxGranizo, tipo);
     }
-
+    
     public Cuota crearCuota() {
-        return new Cuota();
+        System.out.print("Número de cuota: ");
+        int numero = leer.nextInt();
+        System.out.print("Monto de la cuota: ");
+        int montoCuota = leer.nextInt();
+        System.out.print("Está pagada(si/no)? ");
+        String op = leer.next().toLowerCase();
+        boolean pagada = op.equals("si");
+        System.out.println("Vencimiento");
+        System.out.print("Día: ");
+        int dia = leer.nextInt();
+        System.out.print("Mes: ");
+        int mes = leer.nextInt();
+        System.out.print("Año: ");
+        int anio = leer.nextInt();
+        LocalDate vencimiento = LocalDate.of(anio, mes, dia);
+        
+        return new Cuota(numero, montoCuota, pagada, vencimiento);
     }
 }
