@@ -29,25 +29,24 @@ relaciones.
  */
 package Entidades;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Cuota {
 
     private int numero;
     private int montoCuota;
     private boolean pagada;
-    private Date vencimiento;
+    private LocalDate vencimiento;
     private String formaPago;
 
     public Cuota() {
     }
 
-    public Cuota(int numero, int montoCuota, boolean pagada, Date vencimiento, String formaPago) {
+    public Cuota(int numero, int montoCuota, boolean pagada, LocalDate vencimiento) {
         this.numero = numero;
         this.montoCuota = montoCuota;
         this.pagada = pagada;
         this.vencimiento = vencimiento;
-        this.formaPago = formaPago;
     }
 
     public int getNumero() {
@@ -74,11 +73,11 @@ public class Cuota {
         this.pagada = pagada;
     }
 
-    public Date getVencimiento() {
+    public LocalDate getVencimiento() {
         return vencimiento;
     }
 
-    public void setVencimiento(Date vencimiento) {
+    public void setVencimiento(LocalDate vencimiento) {
         this.vencimiento = vencimiento;
     }
 
