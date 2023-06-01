@@ -44,6 +44,7 @@ public class Poliza {
     private boolean granizo;
     private int maxGranizo;
     private String tipo;
+    private Cuota cuota;
 
     public Poliza() {
     }
@@ -148,8 +149,22 @@ public class Poliza {
         this.tipo = tipo;
     }
 
+    public Cuota getCuota() {
+        return cuota;
+    }
+
+    public void setCuota(Cuota cuota) {
+        this.cuota = cuota;
+    }
+
     @Override
     public String toString() {
-        return "Poliza{" + "cliente=" + cliente + ", vehiculo=" + vehiculo + ", numeroPoliza=" + numeroPoliza + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", cuotasCantidad=" + cuotasCantidad + ", formaPago=" + formaPago + ", montoTotal=" + montoTotal + ", granizo=" + granizo + ", maxGranizo=" + maxGranizo + ", tipo=" + tipo + '}';
+        String siNo;
+        if (granizo) {
+            siNo = "Si";
+        } else {
+            siNo = "No";
+        }
+        return "\n----Poliza----" + "\nCliente: " + cliente.getNombre() + "\nVehiculo: " + vehiculo.getMarca() + "\nNumero de Poliza: " + numeroPoliza + "\nDesde: " + fechaInicio + " - Hasta: " + fechaFin + "\nCuotas de Cantidad: " + cuotasCantidad + "\nForma de Pago=" + formaPago + "\nMonto Total: " + montoTotal + "\nGranizo: " + siNo + "\nMáximo por Granizo: " + maxGranizo + "\nTipo: " + tipo + "\nCuota: " + cuota + "\n";
     }
 }

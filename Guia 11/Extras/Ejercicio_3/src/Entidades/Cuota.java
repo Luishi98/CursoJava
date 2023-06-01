@@ -91,6 +91,12 @@ public class Cuota {
 
     @Override
     public String toString() {
-        return "Couta{" + "numero=" + numero + ", montoCuota=" + montoCuota + ", pagada=" + pagada + ", vencimiento=" + vencimiento + ", formaPago=" + formaPago + '}';
+        String siNo;
+        if (pagada) {
+            siNo = "Si";
+        } else {
+            siNo = "No";
+        }
+        return "\n----Couta----" + "\nNumero: " + numero + "\nMonto por Cuota: " + montoCuota + "\nEstá pagada? " + siNo + "\nVencimiento: " + vencimiento;
     }
 }

@@ -26,10 +26,14 @@ relaciones.
  */
 package ejercicio_3;
 
+import Servicios.Servicio;
+
 public class Ejercicio_3 {
 
     public static void main(String[] args) {
         System.out.println("Bien-venido!");
+        Servicio servicio = new Servicio();
+        servicio.asignacion();
     }
 
 }
