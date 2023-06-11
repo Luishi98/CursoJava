@@ -71,17 +71,7 @@ public class ServicioAlquiler {
 
     public int tiempoAlquiler() {
         Period diferencia = alquiler.getFechaAlquiler().until(alquiler.getFechaDevolucion());
-        int dias = diferencia.getDays();
-
-        if (diferencia.getMonths() > 0) {
-            dias += diferencia.getMonths() * 30;
-        }
-
-        if (diferencia.getYears() > 0) {
-            dias += diferencia.getYears() * 365;
-        }
-
-        return dias;
+        return diferencia.getDays();
     }
 
     public int calcularAlquiler() {
