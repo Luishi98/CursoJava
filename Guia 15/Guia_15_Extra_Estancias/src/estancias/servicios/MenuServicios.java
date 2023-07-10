@@ -64,7 +64,7 @@ public class MenuServicios {
                         casaSer.listarCasas(op);
                         break;
                     case 10:
-                        System.out.println("Opción aún no disponible.");
+                        eSer.insertarEstancias();
                         break;
                     case 11:
                         System.out.println("Shao!");

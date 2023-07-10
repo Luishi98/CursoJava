@@ -36,7 +36,7 @@ public class CasasServicios {
             System.out.println(e);
         }
     }
-    
+
     public void listarCasasPorAgrupadas(int op) {
         try {
             CasasDAO cDAO = new CasasDAO();
@@ -52,4 +52,20 @@ public class CasasServicios {
         }
     }
 
+    public Collection<Casas> obtenerCasasSegunFecha(String fecha_desde, String fecha_hasta) throws Exception {
+
+        CasasDAO cDAO = new CasasDAO();
+        Collection<Casas> casasDisponibles = new ArrayList();
+
+        try {
+
+            casasDisponibles = cDAO.obtenerDisponibilidad(fecha_desde, fecha_hasta);
+
+            return casasDisponibles;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            throw e;
+        }
+    }
 }

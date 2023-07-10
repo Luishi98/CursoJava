@@ -32,7 +32,7 @@ public final class CasasDAO extends DAO {
                 int dias = leer.nextInt();
                 //Opcion d
                 sql = "SELECT * FROM casas WHERE fecha_desde >= '2020-08-01' "
-                        + "AND fecha_hasta >= DATE_ADD('" + fecha +"', INTERVAL " + dias + " DAY) ";
+                        + "AND fecha_hasta >= DATE_ADD('" + fecha + "', INTERVAL " + dias + " DAY) ";
             } else if (op == 3) {
                 sql = "SELECT DISTINCT casas.* FROM casas \n"
                         + "JOIN comentarios ON comentarios.id_casa = casas.id_casa \n"
@@ -132,6 +132,26 @@ public final class CasasDAO extends DAO {
                 casa = new Casas();
                 casa.setIdCasa(resultado.getInt(1));
                 casa.setCalle(resultado.getString(2));
+                casas.add(casa);
+            }
+            desconectarBase();
+            return casas;
+        } catch (Exception e) {
+            e.printStackTrace();
+            desconectarBase();
+            throw e;
+        }
+    }
+
+    public Collection<Casas> obtenerDisponibilidad(String fecha1, String fecha2) throws Exception {
+        try {
+            String sql = "SELECT id_casa FROM casas WHERE fecha_desde < '" + fecha1 + "' AND fecha_hasta > '" + fecha2 + "' ";
+            consultarBase(sql);
+            Casas casa = null;
+            Collection<Casas> casas = new ArrayList();
+            while (resultado.next()) {
+                casa = new Casas();
+                casa.setIdCasa(resultado.getInt(1));
                 casas.add(casa);
             }
             desconectarBase();

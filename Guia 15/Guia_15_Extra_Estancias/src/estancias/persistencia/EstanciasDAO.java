@@ -3,6 +3,7 @@ package estancias.persistencia;
 import estancias.entidades.Casas;
 import estancias.entidades.Clientes;
 import estancias.entidades.Estancias;
+import estancias.servicios.EstanciasServicios;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -80,5 +81,9 @@ public final class EstanciasDAO extends DAO {
             throw e;
         }
     }
-
+    
+    public void ingresarEstancias(String sql) throws Exception {
+        insertarModificarEliminar(sql);
+    }
+    
 }
