@@ -4,6 +4,7 @@ import estancias.entidades.Casas;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public final class CasasDAO extends DAO {
 
@@ -25,9 +26,21 @@ public final class CasasDAO extends DAO {
                 sql = "SELECT * FROM casas WHERE fecha_desde <= '2020-08-01' "
                         + "AND fecha_hasta >= '2020-08-31' AND pais = 'Reino Unido' ";
             } else if (op == 2) {
+                //Desde aca verificacion de formato para la fecha
+                String regex = "\\d{4}-\\d{2}-\\d{2}";
+                String fecha;
                 Scanner leer = new Scanner(System.in).useDelimiter("\n");
-                System.out.print("Ingrese la fecha deseada con el formato (AAAA/MM/DD): ");
-                String fecha = leer.next();
+                
+                do {
+                    System.out.print("Ingrese la fecha deseada con el formato (AAAA/MM/DD): ");
+                    fecha = leer.nextLine();
+                    if (Pattern.matches(regex, fecha)) {
+                        break;
+                    } else {
+                        System.out.println("La fecha ingresada no es válida o no sigue el formato AAAA-MM-DD.");
+                    }
+                } while (true);
+                //Hasta aca verificacion de formato para la fecha
                 System.out.print("Ingrese la cantidad de dias: ");
                 int dias = leer.nextInt();
                 //Opcion d
