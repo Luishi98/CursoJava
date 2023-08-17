@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 14</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 14</h2>
+        <h4>Consigna: </h4>
+        <p>Crear un objeto libro que contenga las siguientes propiedades: ISBN, Título, Autor,
+            Número de páginas. Crear un método para cargar un libro pidiendo los datos al usuario
+            y luego informar mediante otro método el número de ISBN, el título, el autor del libro y el
+            numero de páginas.</p>
+        <form id="form">
+            <span>ISBN<br><input type="number" id="isbn" required></span><br>
+            <span>Título<br><input type="text" id="titulo" required></span><br>
+            <span>Autor<br><input type="text" id="autor" required></span><br>
+            <span>Número de páginas<br><input type="number" id="paginas" required></span><br>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const isbn = document.getElementById("isbn").value;
+            const titulo = document.getElementById("titulo").value;
+            const autor = document.getElementById("autor").value;
+            const paginas = document.getElementById("paginas").value;
+            let fraseFinal;
+            const libro = {
+                isbn,
+                titulo,
+                autor,
+                paginas,
+                cargarLibro : function(isbn, titulo, autor, paginas) {
+                    this.isbn = isbn;
+                    this.titulo = titulo;
+                    this.autor = autor;
+                    this.paginas = paginas;
+                },
+                mostrarLibro : function() {
+                    fraseFinal = `ISBN: ${isbn}<br>Título: ${titulo}<br>Autor: ${autor} años<br>Número de páginas: ${paginas}`;
+                }
+            }
+
+            libro.cargarLibro(isbn, titulo, autor, paginas);
+            libro.mostrarLibro();
+
+            
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `${fraseFinal}`;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #45a;
+  text-align: center;
+  margin: 30px;
+}
+
+h2 {
+  color: #099;
+  text-align: center;
+}
+
+.ej {
+  border: 5px dashed #f34;
+  padding: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(5, 100px);
+  grid-auto-flow: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+  border-radius: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a:visited {
+  color: #000;
+}
+
+a:active {
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+textarea {
+  resize: none;
+}
+
+.volver {
+  display: block;
+  font-size: 1.7rem;
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.volver:visited {
+  color: #45a;
+}
+
+.volver:hover {
+  color: #888;
+}

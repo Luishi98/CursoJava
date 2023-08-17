@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 22</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 22</h2>
+        <h4>Consigna: </h4>
+        <p>Escribir un programa de JavaScript que al clickear un botón muestre un mensaje a
+            elección.</p>
+        <form id="form">
+            <input type="submit" value="Apretame">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Auch!`;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 8</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 8</h2>
+        <h4>Consigna: </h4>
+        <p>Escribir un programa que lea números enteros hasta teclear 0 (cero). Al finalizar el
+            programa se debe mostrar el máximo número ingresado, el mínimo, y el promedio de
+            todos ellos.</p>
+        <form id="form">
+            <label for="">Oprimar comenzar!<br>
+                <button type="submit">Comenzar</button>
+            </label>
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let promedio = 0;
+            let i = 0;
+            let maximo = Number.MIN_VALUE;
+            let minimo = Number.MAX_VALUE;
+            while (true) {
+                let numero = parseInt(prompt("Ingrese números y luego el 0 para finalizar"));
+                if (numero === 0) {
+                    break;
+                }
+                i++;
+                promedio += numero;
+                if (numero > maximo) {
+                    maximo = numero;
+                }
+                if (numero < minimo) {
+                    minimo = numero;
+                }
+            }
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Número máximo ingresado: ${maximo}<br>
+            Número mínimo ingresado: ${minimo}<br>
+            Promedio de los números ingresados: ${promedio/i}`;
+        });
+    </script>
+</body>
+
+</html>

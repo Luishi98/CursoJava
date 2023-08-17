@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 20</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 20</h2>
+        <h4>Consigna: </h4>
+        <p>Realizar un programa que obtenga la siguiente matriz [[3], [6], [9], [12], [15]] y devuelve y
+            muestre el siguiente array [6, 9, 12, 15, 18].</p>
+        <form id="form">
+            <p>Oprima enviar para ver el resultado</p>
+            <input type="submit">
+        </form>
+        <p>Resultado: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let arregloA = [[3], [6], [9], [12], [15]];
+            let arregloB = [];
+
+            for (let i = 0; i < arregloA.length; i++) {
+                arregloB.push(arregloA[i][0])
+            }
+
+            let aux = arregloB.shift()
+
+            arregloB.push(arregloB[arregloB.length-1]+aux)
+
+            let mostrar = arregloB.join(", ");
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `[${mostrar}]`;
+        });
+    </script>
+</body>
+
+</html>

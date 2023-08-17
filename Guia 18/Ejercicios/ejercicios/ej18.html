@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 18</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 18</h2>
+        <h4>Consigna: </h4>
+        <p>A partir del siguiente array: var valores = [true, 5, false, "hola", "adios", 2]:<br>
+            a) Determinar cual de los dos elementos de texto es mayor<br>
+            b) Utilizando exclusivamente los dos valores booleanos del array, determinar los
+            operadores necesarios para obtener un resultado true y otro resultado false<br>
+            c) Determinar el resultado de las cinco operaciones matemáticas realizadas con los
+            dos elementos numéricos</p>
+        <form id="form">
+            <p>Oprima enviar para ver el resultado</p>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuestaA">...</p>
+        <p id="respuestaB">...</p>
+        <p id="respuestaC">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let vector = [true, 5, false, "hola", "adios", 2];
+            let variableA = "";
+            let variableB = "";
+
+            /*Punto A*/
+
+            for (let valor of vector) {
+                if (variableA === "" && typeof valor === 'string') {
+                    variableA = valor
+                } else if (variableB === "" && typeof valor === 'string') {
+                    variableB = valor
+                }
+            }
+
+            let puntoA = "";
+            if (variableA.length > variableB.length) {
+                puntoA = `El string "${variableA}" es mayor que el string "${variableB}"`
+            } else if (variableA.length < variableB.length) {
+                puntoA = `El string "${variableB}" es mayor que el string "${variableA}"`
+            } else {
+                puntoA = "Los dos strings tiene la misma longitud"
+            }
+
+            /*Punto B*/
+
+            variableA = "";
+            variableB = "";
+
+            for (let valor of vector) {
+                if (variableA === "" && typeof valor === 'boolean') {
+                    variableA = valor
+                } else if (variableB === "" && typeof valor === 'boolean') {
+                    variableB = valor
+                }
+            }
+
+            if (variableA) {
+                variableA = true
+                variableB = false
+            } else {
+                variableB = true
+                variableA = false
+            }
+
+            let puntoB = `El primer valor es: "${variableA}" y el segundo valor es: "${variableB}"`;
+
+            /*Punto C*/
+
+            variableA = "";
+            variableB = "";
+
+            for (let valor of vector) {
+                if (variableA === "" && typeof valor === 'number') {
+                    variableA = valor
+                } else if (variableB === "" && typeof valor === 'number') {
+                    variableB = valor
+                }
+            }
+
+
+            respuestaA = document.getElementById("respuestaA");
+            respuestaB = document.getElementById("respuestaB");
+            respuestaC = document.getElementById("respuestaC");
+            respuestaA.innerHTML = `Punto A:<br>${puntoA}`;
+            respuestaB.innerHTML = `Punto B:<br>${puntoB}`;
+            respuestaC.innerHTML = `Punto C:<br>Operaciones entre los numeros ${variableA} y ${variableB}<br>
+            Suma: ${variableA + variableB}<br>
+            Resta: ${variableA - variableB}<br>
+            Multiplicación: ${variableA * variableB}<br>
+            División: ${variableA / variableB}<br>
+            Potencia: ${Math.pow(variableA, variableB)}<br>`;
+        });
+    </script>
+</body>
+
+</html>

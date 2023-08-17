@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 25</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 25</h2>
+        <h4>Consigna: </h4>
+        <p>Escriba una función de JavaScript para obtener los valores de Nombre y Apellido del
+            siguiente formulario.</p>
+        <img src="../imagenes/ej25.png.jpg" alt="">
+        <form id="form1" onsubmit="getFormValores()" >
+            Nombre: <input type="text" name="nombre" value="David"><br>
+            Apellido: <input type="text" name="apellido" value="Beckham"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form1").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let nombre = document.getElementsByName("nombre");
+            let apellido = document.getElementsByName("apellido");
+
+            nombre = nombre[0].value;
+            apellido = apellido[0].value;
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Nombre: ${nombre}<br>Apellido: ${apellido}`;
+        });
+    </script>
+</body>
+
+</html>

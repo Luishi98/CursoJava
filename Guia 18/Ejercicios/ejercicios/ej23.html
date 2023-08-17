@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 23</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 23</h2>
+        <h4>Consigna: </h4>
+        <p>Resalte todas las palabras de más de 8 caracteres en el texto del párrafo (con un fondo
+            amarillo, por ejemplo)</p>
+        <img src="../imagenes/imagen.jpg" alt="">
+        <p>Ejemplo de texto:<br>Lionel Messi, icónico futbolista argentino, es conocido por su destreza en el campo,
+            asombrosa habilidad para regatear y capacidad para marcar goles impresionantes. Su legado perdurará en la
+            historia del fútbol.</p>
+        <form id="form">
+            <p>Escriba un texto:</p>
+            <textarea name="" id="texto" cols="30" rows="10"></textarea><br>
+            <input type="submit" value="Apretame">
+        </form>
+        <p>Texto original: <br></p>
+        <p id="respuesta">...</p>
+        <p>Texto final: <br></p>
+        <p id="respuestaB">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const texto = document.getElementById("texto").value;
+
+            let palabras = texto.split(" ");
+
+            let textoFinal = "";
+            let i = 0;
+
+            for (let aux = 0; aux < palabras.length; aux++) {
+                if (palabras[aux].length > 8) {
+                    textoFinal += `<span style="background-color: yellow;">${palabras[aux]}</span> `;
+                } else {
+                    textoFinal += palabras[aux] + " ";
+                }
+            }
+
+            const respuesta = document.getElementById("respuesta");
+            const respuestaB = document.getElementById("respuestaB");
+            respuesta.innerHTML = `${texto}<br>`;
+            respuestaB.innerHTML = `${textoFinal}`;
+        });
+    </script>
+</body>
+
+</html>

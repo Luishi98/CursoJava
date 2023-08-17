@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 16</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 16</h2>
+        <h4>Consigna: </h4>
+        <p>Realizar un programa que rellene dos vectores al mismo tiempo, con 5 valores aleatorios
+            y los muestre por pantalla.</p>
+        <form id="form">
+            <p>Presione "Enviar" para comenzar</p>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let vectorA = [];
+            let vectorB = [];
+            let num;
+            for (let i = 0; i < 5; i++) {
+                num = Math.random()*10;
+                vectorA.push(num);
+                num = Math.random()*10;
+                vectorB.push(num);
+            }
+            let mostrarA = "";
+            let mostrarB = "";
+            for (let numero of vectorA) {
+                mostrarA += numero.toFixed(2) + "<br>"
+            }
+
+            for (let numero of vectorB) {
+                mostrarB += numero.toFixed(2) + "<br>"
+            }
+           
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Vector A: <br>${mostrarA}<br>Vector B: <br>${mostrarB}`;
+        });
+    </script>
+</body>
+
+</html>

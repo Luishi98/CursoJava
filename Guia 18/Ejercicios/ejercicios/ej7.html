@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 7</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 7</h2>
+        <h4>Consigna: </h4>
+        <p>Escriba un programa en el cual se ingrese un valor límite positivo, y a continuación
+            solicite números al usuario hasta que la suma de los números introducidos supere el
+            límite inicial.</p>
+        <form id="form">
+            <span>Ingrese un valor límite positivo<br><input type="number" placeholder="ej: 100" id="limite">
+            </span><br>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const limite = document.getElementById("limite").value;
+            let suma = 0;
+            while (true) {
+                let numero = parseInt(prompt("Ingrese un número para ser sumado"));
+                suma += numero;
+                if (suma > limite) {
+                    break;
+                }
+            }
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `El valor final de la suma fue: ${suma}. El limite era: ${limite}`;
+        });
+    </script>
+</body>
+
+</html>

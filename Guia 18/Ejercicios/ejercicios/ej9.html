@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 9</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 9</h2>
+        <h4>Consigna: </h4>
+        <p>Realizar un programa que pida una frase y el programa deberá mostrar la frase con un
+            espacio entre cada letra. La frase se mostrara así: H o l a. Nota: recordar el
+            funcionamiento de la función Substring().</p>
+        <form id="form">
+            <span>Escriba un frase<br><input type="text" placeholder="ej: Hola mundo" id="frase">
+            </span><br>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const frase = document.getElementById("frase").value;
+
+            let fraseFinal = "";
+
+            for (let i = 0; i < frase.length; i++) {
+                fraseFinal += frase.substring(i, i + 1) + " ";
+            }
+
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `${fraseFinal}`;
+        });
+    </script>
+</body>
+
+</html>

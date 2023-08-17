@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 6</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 6</h2>
+        <h4>Consigna: </h4>
+        <p>Realizar un programa que, dado un número entero, visualice en pantalla si es par o impar.
+            En caso de que el valor ingresado sea 0, se debe mostrar “el número no es par ni impar”.</p>
+        <form id="form">
+            <span>Ingrese un número y le diremos si es par o impar<br><input type="number" placeholder="ej: 5" required
+                    id="par"> </span>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const num = document.getElementById("par").value;
+            let mensaje;
+            let respuesta;
+            if (num == 0) {
+                mensaje = "no es par ni impar";
+            } else {
+                num % 2 === 0 ? mensaje = "es Par" : mensaje = "es Impar";
+            }
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `El número ${num} ${mensaje}`;
+        });
+    </script>
+</body>
+
+</html>

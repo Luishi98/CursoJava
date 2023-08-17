@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 5</h2>
+        <h4>Consigna: </h4>
+        <p>Construir un programa que simule un menú de opciones para realizar las cuatro
+            operaciones aritméticas básicas (suma, resta, multiplicación y división) con dos valores
+            numéricos enteros. El usuario, además, debe especificar la operación con el primer
+            carácter de la operación que desea realizar: ‘S' o ‘s’ para la suma, ‘R’ o ‘r’ para la resta, ‘M’
+            o ‘m’ para la multiplicación y ‘D’ o ‘d’ para la división.</p><br>
+        <form id="form">
+            <p>Indique 2 números y la operación a realizar</p>
+            <span><input type="number" placeholder="Número 1" required id="num1"> </span><br>
+            <span><input type="number" placeholder="Número 2" required id="num2"> </span><br>
+            <span><input type="radio" name="op" class="op" required> Suma</span><br>
+            <span><input type="radio" name="op" class="op" required> Resta</span><br>
+            <span><input type="radio" name="op" class="op" required> Multiplicación</span><br>
+            <span><input type="radio" name="op" class="op" required> División</span><br>
+            <input type="submit" id="calcular">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const op = document.getElementsByClassName("op");
+            let operacion;
+
+            for (let i = 0; i < op.length; i++) {
+                if (op[i].checked) {
+                    operacion = op[i].parentElement.textContent.trim();
+                    break;
+                };
+            };
+
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+            let resultado;
+
+            switch (operacion) {
+                case "Suma":
+                    resultado = num1 + num2;
+                    break;
+                case "Resta":
+                    resultado = num1 - num2;
+                    break;
+                case "Multiplicación":
+                    resultado = num1 * num2;
+                    break;
+                case "División":
+                    resultado = num1 / num2;
+                    resultado = resultado.toFixed(2);
+                    break;
+            }
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `El resultado de hacer la operación (${operacion}) entre  ${num1} y ${num2} es: ${resultado}`;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 13</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 13</h2>
+        <h4>Consigna: </h4>
+        <p>Crear un objeto persona, con las propiedades nombre, edad, sexo ('H' hombre, 'M' mujer,
+            'O' otro), peso y altura. A continuación, muestre las propiedades del objeto JavaScript.</p>
+        <form id="form">
+            <span>Nombre<br><input type="text" id="nombre" required></span><br>
+            <span>Edad<br><input type="number" id="edad" required></span><br>
+            <span>Sexo: </span><br>
+            <span><input type="radio" name="sexo" class="sexo" required> Hombre<br></span>
+            <span><input type="radio" name="sexo" class="sexo" required> Mujer<br></span>
+            <span><input type="radio" name="sexo" class="sexo" required> Otro<br></span>
+            <span>Peso (Kg)<br><input type="number" id="peso" required></span><br>
+            <span>Altura (cm)<br><input type="number" id="altura" required></span><br>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const nombre = document.getElementById("nombre").value;
+            const edad = document.getElementById("edad").value;
+            const peso = document.getElementById("peso").value;
+            const altura = document.getElementById("altura").value;
+
+            const op = document.getElementsByClassName("sexo");
+            let eleccion;
+
+            for (let i = 0; i < op.length; i++) {
+                if (op[i].checked) {
+                    eleccion = op[i].parentElement.textContent.trim();
+                    break;
+                };
+            };
+
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Nombre: ${nombre}<br>Edad: ${edad} años<br>Sexo: ${eleccion}<br>Peso: ${peso} kg<br>Altura: ${altura} cm`;
+        });
+    </script>
+</body>
+
+</html>

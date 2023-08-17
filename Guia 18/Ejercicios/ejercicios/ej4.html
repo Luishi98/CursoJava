@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 4</h2>
+        <h4>Consigna: </h4>
+        <p>Realiza un programa que sólo permita introducir los caracteres ‘S’ y ‘N’. Si el usuario
+            ingresa alguno de esos dos caracteres se deberá de imprimir un mensaje por pantalla
+            que diga “CORRECTO”, en caso contrario, se deberá imprimir “INCORRECTO”.</p>
+        <form id="form">
+            <span>Ingrese 'S' o 'N'<br><input type="text" placeholder="ej: S" required id="input"> </span>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let input = document.getElementById("input").value;
+            input = input.toUpperCase();
+            let mensaje;
+            input === "S" || input === "N" ? mensaje = "Correcto" : mensaje = "Incorrecto" ;
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = mensaje;
+        });
+    </script>
+</body>
+
+</html>

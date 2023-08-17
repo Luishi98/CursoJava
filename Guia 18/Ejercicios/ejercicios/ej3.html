@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 3</h2>
+        <h4>Consigna: </h4>
+        <p>Escriba un programa en donde se pida la edad del usuario. Si el usuario es mayor de
+            edad se debe mostrar un mensaje indicándolo.</p>
+        <form id="form">
+            <span>Ingrese su edad:<br><input type="number" placeholder="ej: 18" required id="edad"> </span>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const edad = document.getElementById("edad").value;
+            let mensaje;
+            edad >= 18 ? mensaje = "Eres mayor de edad en Argentina" : mensaje = "No eres mayor de edad en Argentina";
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = mensaje;
+        });
+    </script>
+</body>
+
+</html>

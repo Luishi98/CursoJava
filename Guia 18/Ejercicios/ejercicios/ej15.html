@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 15</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 15</h2>
+        <h4>Consigna: </h4>
+        <p>Escribe un programa JavaScript para calcular el área y el perímetro de un objeto Círculo
+            con la propiedad radio. Nota: Cree dos métodos para calcular el área y el perímetro. El
+            radio del círculo lo proporcionará el usuario.</p>
+        <form id="form">
+            <span>Ingrese el valor del radio (en cm) <br><input type="number" placeholder="ej:5" required id="radio"> </span>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const circulo = {
+                radio : "",
+                calcularPerimetro() {
+                    let p = Math.PI * 2 * (this.radio)
+                    return p;
+                },
+                calcularArea() {
+                    let a = Math.PI * Math.pow(this.radio, 2)
+                    return a;
+                }
+            }
+
+            const radio = document.getElementById("radio").value;
+            circulo.radio = radio;
+            const perimetro = circulo.calcularPerimetro();
+            const area = circulo.calcularArea();
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `El perimetro es: ${perimetro.toFixed(2)}cm y el area es: ${area.toFixed(2)}cm2`;
+        });
+    </script>
+</body>
+
+</html>

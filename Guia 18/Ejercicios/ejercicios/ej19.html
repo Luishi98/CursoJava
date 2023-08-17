@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 19</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 19</h2>
+        <h4>Consigna: </h4>
+        <p>Realizar un programa en Java donde se creen dos arreglos: el primero será un arreglo A
+            de 50 números reales, y el segundo B, un arreglo de 20 números, también reales. El
+            programa deberá inicializar el arreglo A con números aleatorios y mostrarlo por pantalla.
+            Luego, el arreglo A se debe ordenar de menor a mayor y copiar los primeros 10 números
+            ordenados al arreglo B de 20 elementos, y rellenar los 10 últimos elementos con el valor
+            0.5. Mostrar los dos arreglos resultantes: el ordenado de 50 elementos y el combinado
+            de 20.</p>
+        <form id="form">
+            <p>Oprima enviar para ver el resultado</p>
+            <input type="submit">
+        </form>
+        <p>Arreglo A de 50 números: <br></p>
+        <p id="respuestaA">...</p>
+        <p>Arreglo A ordenado y Arreglo B<br></p>
+        <p id="respuestaB">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let arregloA = [];
+            let arregloB = [];
+
+            for (let i = 0; i < 50; i++) {
+                let num = Math.random() * 100;
+                num = num.toFixed(3);
+                arregloA.push(num);
+            }
+
+            let mostrarA = "";
+
+            for (let i = 0; i < arregloA.length; i++) {
+                mostrarA += "[" + arregloA[i] + "], "
+                if ((i + 1) % 10 === 0) {
+                    mostrarA += "<br>"
+                }
+            }
+
+            let vectorA = arregloA.sort();
+
+            for (let i = 0; i < 20; i++) {
+                if (i <= 9) {
+                    arregloB.push(arregloA[i])
+                } else {
+                    arregloB.push(0.5)
+                }
+            }
+
+            let mostrarAOrd = "";
+
+            for (let i = 0; i < arregloA.length; i++) {
+                mostrarAOrd += "[" + arregloA[i] + "], "
+                if ((i + 1) % 10 === 0) {
+                    mostrarAOrd += "<br>"
+                }
+            }
+
+            let mostrarB = "";
+
+            for (let i = 0; i < arregloB.length; i++) {
+                mostrarB += "[" + arregloB[i] + "], "
+                if ((i + 1) % 5 === 0) {
+                    mostrarB += "<br>"
+                }
+            }
+
+            const respuestaA = document.getElementById("respuestaA");
+            const respuestaB = document.getElementById("respuestaB");
+            respuestaA.innerHTML = `${mostrarA}`;
+            respuestaB.innerHTML = `${mostrarAOrd}<br>${mostrarB}`;
+        });
+    </script>
+</body>
+
+</html>

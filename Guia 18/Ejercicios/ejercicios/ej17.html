@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 17</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 17</h2>
+        <h4>Consigna: </h4>
+        <p>Realizar un programa que elimine los dos últimos elementos de un array. Mostrar el resultado</p>
+        <form id="form">
+            <p>Numero 1</p>
+            <span><input type="number" id="num1"></span><br>
+            <p>Numero 2</p>
+            <span><input type="number" id="num2"></span><br>
+            <p>Numero 3</p>
+            <span><input type="number" id="num3"></span><br>
+            <p>Numero 4</p>
+            <span><input type="number" id="num4"></span><br>
+            <p>Numero 5</p>
+            <span><input type="number" id="num5"></span><br>
+            <p>Oprima enviar para mostrar su vector y su modificación</p>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+            const num3 = document.getElementById("num3").value;
+            const num4 = document.getElementById("num4").value;
+            const num5 = document.getElementById("num5").value;
+
+            let vector = [num1, num2, num3, num4, num5];
+
+            let mostrarVector = "";
+
+            for (numero of vector) {
+                mostrarVector += numero + "<br>";
+            }
+
+            vector.splice(vector.length - 1);
+            vector.splice(vector.length - 1);
+
+            let mostrarDespues = "";
+
+            for (numero of vector) {
+                mostrarDespues += numero + "<br>";
+            }
+
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `Vector original: <br>${mostrarVector}<br>Vector final: <br>${mostrarDespues}`;
+        });
+    </script>
+</body>
+
+</html>

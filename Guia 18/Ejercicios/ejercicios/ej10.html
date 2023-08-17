@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>Ejercicio 10</title>
+</head>
+
+<body>
+    <div class="ej">
+        <h2>Ejercicio 10</h2>
+        <h4>Consigna: </h4>
+        <p>Escribir una función flecha que reciba una palabra y la devuelva al revés.</p>
+        <form id="form">
+            <span>Escriba un frase<br><input type="text" placeholder="ej: Hola mundo" id="frase">
+            </span><br>
+            <input type="submit">
+        </form>
+        <p>Respuesta: <br></p>
+        <p id="respuesta">...</p>
+    </div>
+
+    <a class="volver" href="../index.html">Volver!</a>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const frase = document.getElementById("frase").value;
+            
+            const invertirFrase = frase => frase.split('').reverse().join('');
+
+            const fraseFinal = invertirFrase(frase);
+
+            respuesta = document.getElementById("respuesta");
+            respuesta.innerHTML = `${fraseFinal}`;
+        });
+    </script>
+</body>
+
+</html>
